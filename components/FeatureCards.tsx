@@ -40,17 +40,17 @@ const cards = [
 
 export function FeatureCards() {
   return (
-    <section className="bg-white py-10 sm:py-16 md:py-20 lg:py-24">
+    <section className="bg-white py-7 sm:py-12 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-xl font-bold text-navy-900 sm:text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-lg font-bold text-navy-900 sm:text-xl md:text-3xl lg:text-4xl">
             看得见的训练体系，看得懂的学习结果
           </h2>
-          <p className="mt-1.5 text-sm font-normal text-navy-500 sm:mt-2 sm:text-base md:text-lg">
+          <p className="mt-1 text-sm font-normal text-navy-500 sm:mt-1.5 md:mt-2 md:text-base lg:text-lg">
             Built for measurable progress and clear outcomes
           </p>
         </div>
-        <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
+        <div className="mt-5 grid gap-4 sm:mt-8 sm:grid-cols-2 sm:gap-6 md:gap-8 lg:grid-cols-3">
           {cards.map((card, i) => (
             <motion.article
               key={card.titleZh}
@@ -58,18 +58,18 @@ export function FeatureCards() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true, margin: "-40px" }}
               transition={{ duration: 0.35, delay: i * 0.08 }}
-              className="flex flex-col rounded-2xl border border-navy-200 bg-white p-6 shadow-sm transition hover:border-accent/30 hover:shadow-md"
+              className="flex flex-col rounded-[18px] border border-navy-200 bg-white p-4 shadow-sm transition hover:border-accent/30 hover:shadow-md md:rounded-2xl md:p-6"
             >
-              <div className="flex h-12 w-12 items-center justify-center rounded-xl bg-navy-100 text-navy-700">
-                <card.Icon className="h-6 w-6" />
+              <div className="flex h-10 w-10 items-center justify-center rounded-lg bg-navy-100 text-navy-700 md:h-12 md:w-12 md:rounded-xl">
+                <card.Icon className="h-5 w-5 md:h-6 md:w-6" />
               </div>
-              <h3 className="mt-4 text-lg font-semibold text-navy-900">
+              <h3 className="mt-3 text-base font-semibold text-navy-900 md:mt-4 md:text-lg">
                 {card.titleZh}
               </h3>
-              <p className="mt-0.5 text-sm font-normal text-navy-500">
+              <p className="mt-0.5 text-xs font-normal text-navy-500 md:text-sm">
                 {card.titleEn}
               </p>
-              <ul className="mt-3 list-inside list-disc space-y-1.5 text-sm text-navy-600">
+              <ul className="mt-2 list-inside list-disc space-y-1 text-xs text-navy-600 md:mt-3 md:space-y-1.5 md:text-sm">
                 {card.items.map((item) => (
                   <li key={item}>{item}</li>
                 ))}

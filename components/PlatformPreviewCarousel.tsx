@@ -66,42 +66,42 @@ export function PlatformPreviewCarousel() {
   };
 
   return (
-    <section className="bg-white py-10 sm:py-16 md:py-20 lg:py-24">
+    <section className="bg-white py-7 sm:py-12 md:py-20 lg:py-24">
       <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl lg:text-4xl">
+          <h2 className="text-lg font-bold text-navy-900 sm:text-2xl md:text-3xl lg:text-4xl">
             See what parents receive after every test
           </h2>
-          <p className="mt-2 text-base font-normal text-navy-500 sm:text-lg">
+          <p className="mt-1.5 text-sm font-normal text-navy-500 sm:mt-2 sm:text-base md:text-lg">
             每次测评后，家长都会收到一份清晰、可执行的学习报告
           </p>
         </div>
-        <div className="mt-12 grid gap-10 lg:grid-cols-2 lg:items-center">
+        <div className="mt-6 grid gap-6 md:mt-12 md:gap-10 lg:grid-cols-2 lg:items-center">
           <div>
-            <ul className="space-y-3">
-              {highlights.map((h) => (
-                <li key={h.en} className="flex items-start gap-3">
-                  <span className="mt-1.5 h-2 w-2 shrink-0 rounded-full bg-accent" />
+            <ul className="space-y-2 md:space-y-3">
+              {highlights.map((h, idx) => (
+                <li key={h.en} className={`flex items-start gap-2 md:gap-3 ${idx >= 4 ? "hidden md:flex" : ""}`}>
+                  <span className="mt-1.5 h-1.5 w-1.5 shrink-0 rounded-full bg-accent md:h-2 md:w-2" />
                   <div>
-                    <span className="text-navy-800 text-sm leading-snug sm:text-base">
+                    <span className="text-navy-800 text-xs leading-snug sm:text-sm md:text-base">
                       {h.zh}
                     </span>
-                    <p className="mt-0.5 text-xs text-navy-500">{h.en}</p>
+                    <p className="mt-0.5 text-[11px] text-navy-500 md:text-xs">{h.en}</p>
                   </div>
                 </li>
               ))}
             </ul>
-            <p className="mt-5 text-sm leading-relaxed text-navy-600">
+            <p className="mt-3 text-xs leading-relaxed text-navy-600 md:mt-5 md:text-sm">
               报告重点：不仅是分数，更能自动生成错题集与练习包。
             </p>
-            <p className="mt-1 text-xs text-navy-500">
+            <p className="mt-0.5 text-[11px] text-navy-500 md:mt-1 md:text-xs">
               Not just a score — diagnosis + auto-generated practice.
             </p>
           </div>
 
           <div className="relative">
             <div
-              className="relative aspect-[4/3] overflow-hidden rounded-xl border border-navy-200 bg-navy-100"
+              className="relative aspect-[4/3] max-h-[220px] overflow-hidden rounded-[18px] border border-navy-200 bg-navy-100 sm:max-h-[280px] md:max-h-none md:rounded-xl"
               onClick={() => setZoomOpen(true)}
               role="button"
               tabIndex={0}
@@ -129,7 +129,7 @@ export function PlatformPreviewCarousel() {
                     />
                   ) : null}
                   <div
-                    className={`absolute inset-0 flex items-center justify-center bg-navy-100 text-navy-500 ${
+                    className={`absolute inset-0 flex items-center justify-center bg-navy-100 text-navy-500 text-xs ${
                       imageError ? "" : "pointer-events-none opacity-0"
                     }`}
                   >
@@ -139,27 +139,27 @@ export function PlatformPreviewCarousel() {
               </AnimatePresence>
             </div>
 
-            {/* Tabs: full-bleed so left/right pills are not cut off (extend into section padding) */}
-            <div className="mt-4 overflow-visible -mx-4 sm:-mx-6 lg:-mx-8">
-              <div className="flex flex-nowrap justify-center gap-2 overflow-visible">
+            {/* Mobile: small segmented chips; desktop: larger pills */}
+            <div className="mt-3 overflow-visible -mx-4 sm:-mx-6 md:mt-4 lg:-mx-8">
+              <div className="flex flex-wrap justify-center gap-1.5 md:flex-nowrap md:gap-2">
                 {slides.map((slide, i) => (
                   <button
                     key={slide.en}
                     type="button"
                     onClick={() => goTo(i)}
-                    className={`shrink-0 rounded-full border px-3 py-1.5 text-center text-sm font-medium transition sm:px-4 sm:py-2 ${
+                    className={`shrink-0 rounded-full border px-2.5 py-1 text-center text-[11px] font-medium transition md:px-3 md:py-1.5 md:text-sm lg:px-4 lg:py-2 ${
                       i === index
                         ? "border-accent bg-accent text-white"
                         : "border-navy-200 bg-white text-navy-600 hover:border-navy-300 hover:bg-navy-50"
                     }`}
                   >
                     <span className="whitespace-nowrap">{slide.zh}</span>
-                    <span className="ml-1.5 text-xs opacity-90">/ {slide.en}</span>
+                    <span className="ml-1 hidden opacity-90 sm:inline md:ml-1.5 md:text-xs">/ {slide.en}</span>
                   </button>
                 ))}
               </div>
               {currentSlide && (
-                <p className="mt-2 text-center text-xs text-navy-500">
+                <p className="mt-1.5 text-center text-[11px] text-navy-500 md:mt-2 md:text-xs">
                   {currentSlide.hint}
                 </p>
               )}

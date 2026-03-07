@@ -13,7 +13,7 @@ export function ResultsBand() {
   const resultsYear = new Date().getFullYear() - 1;
 
   return (
-    <section className="relative min-h-[320px] overflow-hidden py-10 sm:min-h-[380px] sm:py-16 md:min-h-[420px] md:py-20 lg:py-24">
+    <section className="relative min-h-[260px] overflow-hidden py-7 sm:min-h-[320px] sm:py-10 md:min-h-[420px] md:py-20 lg:py-24">
       {/* Full-section background: medal photo */}
       <div className="absolute inset-0">
         {!bgError ? (
@@ -42,15 +42,15 @@ export function ResultsBand() {
       {/* Content – full mobile width, same content alignment */}
       <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl">
+          <h2 className="text-lg font-bold text-white sm:text-xl md:text-3xl lg:text-4xl">
             真实成绩，持续产出
           </h2>
-          <p className="mt-1.5 text-sm font-normal text-white/85 sm:mt-2 sm:text-base md:text-lg">
+          <p className="mt-1 text-sm font-normal text-white/85 sm:mt-1.5 md:mt-2 md:text-base lg:text-lg">
             Proven outcomes in {resultsYear}
           </p>
         </div>
 
-        <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4 md:gap-5 lg:gap-6">
+        <div className="mt-4 flex flex-wrap justify-center gap-2 sm:mt-6 sm:gap-3 md:mt-10 md:gap-5 lg:gap-6">
           {siteConfig.resultsMetrics.map((metric, i) => (
             <motion.div
               key={metric}
@@ -58,14 +58,14 @@ export function ResultsBand() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.35, delay: i * 0.05 }}
-              className="min-w-[160px] flex-1 rounded-xl border border-white/20 bg-white/95 px-4 py-4 text-center shadow-lg backdrop-blur sm:min-w-[172px] sm:px-5 sm:py-5"
+              className="min-w-[120px] flex-1 rounded-lg border border-white/20 bg-white/95 px-3 py-2.5 text-center shadow-lg backdrop-blur sm:min-w-[160px] sm:rounded-xl sm:px-4 sm:py-4 md:min-w-[172px] md:px-5 md:py-5"
             >
-              <p className="whitespace-nowrap text-sm font-semibold text-navy-900">{metric}</p>
+              <p className="whitespace-nowrap text-xs font-semibold text-navy-900 sm:text-sm">{metric}</p>
             </motion.div>
           ))}
         </div>
 
-        <p className="mt-8 text-center text-xs text-white/75 max-w-2xl mx-auto">
+        <p className="mt-5 text-center text-[11px] text-white/75 max-w-2xl mx-auto sm:mt-6 md:mt-8 md:text-xs">
           {disclaimer}
         </p>
       </div>
