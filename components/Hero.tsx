@@ -45,10 +45,10 @@ export function Hero() {
             {heroBodyCopy}
           </motion.p>
           <p className="mt-2 text-sm text-navy-300 sm:text-base">
-            Competition math coaching for students in Vancouver, Richmond, and Greater Vancouver.
+            Serving students across Vancouver, Richmond, Burnaby, West Vancouver, and Delta, including Vancouver West and Vancouver East.
           </p>
           <p className="mt-0.5 text-xs text-navy-400">
-            面向温哥华、列治文及大温地区学生的竞赛数学培训与诊断平台。
+            服务温哥华、列治文、本拿比、西温及三角洲地区学生，包括温西和温东。
           </p>
 
           {/* B. Results chips – wrap into 2 rows, tight spacing on mobile */}

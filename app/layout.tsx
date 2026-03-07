@@ -19,8 +19,11 @@ const jsonLd = {
       email: "zengmushi1993@gmail.com",
       sameAs: [] as string[],
       areaServed: [
-        "Richmond",
         "Vancouver",
+        "Richmond",
+        "Burnaby",
+        "West Vancouver",
+        "Delta",
         "Greater Vancouver",
         "British Columbia",
         "Canada",

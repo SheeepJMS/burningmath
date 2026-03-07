@@ -74,10 +74,10 @@ export default function ContactPage() {
           Get in touch or book a trial or diagnostic test.
         </p>
         <p className="mt-3 text-sm text-navy-600">
-          Serving students in Richmond, Vancouver, and Greater Vancouver through in-person and online competition math coaching.
+          Serving students across Greater Vancouver, including Vancouver, Richmond, Burnaby, West Vancouver, and Delta.
         </p>
         <p className="mt-1 text-xs text-navy-500">
-          服务列治文、温哥华及大温地区学生，提供线下与线上竞赛数学训练与诊断。
+          服务大温地区学生，包括温哥华、列治文、本拿比、西温和三角洲。
         </p>
       </div>
       {siteConfig.showBookingForm && <BookingForm />}
