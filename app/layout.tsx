@@ -3,6 +3,63 @@ import { Inter } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/components/Navbar";
 
+/** JSON-LD structured data for SEO (Schema.org) */
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "EducationalOrganization",
+      "@id": "https://www.burningmath.com/#organization",
+      name: "Burning Math Academy",
+      url: "https://www.burningmath.com",
+      logo: "https://www.burningmath.com/assets/logo.png",
+      image: "https://www.burningmath.com/assets/og-home.jpg",
+      description:
+        "Competition math coaching and AI-powered diagnostic platform for grades 4–12.",
+      email: "zengmushi1993@gmail.com",
+      sameAs: [] as string[],
+      areaServed: "Greater Vancouver",
+      knowsAbout: [
+        "Competition Math",
+        "AMC",
+        "AIME",
+        "Euclid",
+        "Gauss",
+        "Elmacon",
+        "Waterloo Math Contests",
+        "COMC",
+        "CSMC",
+      ],
+    },
+    {
+      "@type": "Person",
+      "@id": "https://www.burningmath.com/#james-zeng",
+      name: "James Zeng",
+      jobTitle: "Competition Math Coach",
+      worksFor: { "@id": "https://www.burningmath.com/#organization" },
+      url: "https://www.burningmath.com/coach",
+      description:
+        "Competition math coach with Olympiad-level background and AI-powered training system.",
+      knowsAbout: [
+        "Competition Math",
+        "AMC",
+        "AIME",
+        "Euclid",
+        "Math Olympiad",
+        "Problem Solving",
+        "Waterloo Math Contests",
+      ],
+    },
+    {
+      "@type": "WebSite",
+      "@id": "https://www.burningmath.com/#website",
+      name: "Burning Math Academy",
+      url: "https://www.burningmath.com",
+      publisher: { "@id": "https://www.burningmath.com/#organization" },
+    },
+  ],
+};
+
 const inter = Inter({
   subsets: ["latin"],
   variable: "--font-inter",
@@ -50,6 +107,10 @@ export default function RootLayout({
   return (
     <html lang="en" className={inter.variable}>
       <body className="font-sans">
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
         <Navbar />
         <main>{children}</main>
       </body>
