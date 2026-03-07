@@ -15,10 +15,25 @@ export const metadata: Metadata = {
   description:
     "Competition math coaching and AI-powered diagnostic platform. AMC, AIME, Gauss preparation for grades 4–12.",
   openGraph: {
-    title: "Burning Math Academy | AMC / AIME Competition Math Coaching",
-    description:
-      "Competition math coaching and AI-powered diagnostic platform. AMC, AIME, Gauss preparation for grades 4–12.",
+    title: "Burning Math Academy",
+    description: "Competition Math Coaching + AI Analytics",
+    url: "https://www.burningmath.com",
+    siteName: "Burning Math Academy",
+    images: [
+      {
+        url: "https://www.burningmath.com/assets/og-home.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Burning Math Academy Competition Math Coaching",
+      },
+    ],
     type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Burning Math Academy",
+    description: "Competition Math Coaching + AI Analytics",
+    images: ["https://www.burningmath.com/assets/og-home.jpg"],
   },
   icons: {
     icon: [{ url: "/brand/bma-favicon.svg", type: "image/svg+xml" }],
