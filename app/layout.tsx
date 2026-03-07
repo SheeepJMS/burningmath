@@ -10,13 +10,14 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Burning Math Academy | Competition Math Coaching + AI Analytics",
+  metadataBase: new URL("https://www.burningmath.com"),
+  title: "Burning Math Academy | AMC / AIME Competition Math Coaching",
   description:
-    "Personalized competition math training for G4–G12 across COMC, AMC, Waterloo (Gauss–Euclid). AI-driven assessment and measurable results in Vancouver.",
+    "Competition math coaching and AI-powered diagnostic platform. AMC, AIME, Gauss preparation for grades 4–12.",
   openGraph: {
-    title: "Burning Math Academy | Competition Math Coaching + AI Analytics",
+    title: "Burning Math Academy | AMC / AIME Competition Math Coaching",
     description:
-      "Personalized competition math training for G4–G12. AI-driven assessment. Proven outcomes.",
+      "Competition math coaching and AI-powered diagnostic platform. AMC, AIME, Gauss preparation for grades 4–12.",
     type: "website",
   },
   icons: {
