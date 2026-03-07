@@ -299,6 +299,12 @@ export default function CoachPage() {
               <div className="space-y-1 text-navy-700">
                 <p className="leading-relaxed">{INTRO_EN}</p>
                 <p className="text-sm text-navy-600">{INTRO_ZH}</p>
+                <p className="mt-3 text-sm font-medium text-navy-800">
+                  Based in Greater Vancouver, James Zeng works with students across AMC, AIME, Euclid, Waterloo, and Olympiad pathways.
+                </p>
+                <p className="text-xs text-navy-600">
+                  立足大温地区，James Zeng 长期指导 AMC、AIME、Euclid、Waterloo 及奥赛体系学生。
+                </p>
               </div>
               <div>
                 <Link

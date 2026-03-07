@@ -12,7 +12,7 @@ import { siteConfig } from "@/siteConfig";
 export const metadata: Metadata = {
   title: "Burning Math Academy | AMC, AIME, Euclid & Competition Math Coaching",
   description:
-    "Burning Math Academy offers competition math coaching, AMC/AIME/Euclid preparation, and AI-powered diagnostics for students in grades 4–12.",
+    "Burning Math Academy offers competition math coaching, AMC/AIME/Euclid preparation, and AI-powered diagnostics for students in Vancouver, Richmond, and Greater Vancouver.",
   alternates: { canonical: "https://www.burningmath.com/" },
 };
 

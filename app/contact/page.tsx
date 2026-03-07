@@ -8,7 +8,7 @@ import { siteConfig } from "@/siteConfig";
 export const metadata: Metadata = {
   title: "Book a Trial | Competition Math Coaching Consultation",
   description:
-    "Book a trial or diagnostic test for AMC, AIME, Euclid, and competition math coaching.",
+    "Book a trial or diagnostic test for AMC, AIME, Euclid, and competition math coaching in Vancouver, Richmond, and Greater Vancouver.",
   alternates: { canonical: "https://www.burningmath.com/contact" },
 };
 
@@ -72,6 +72,12 @@ export default function ContactPage() {
         <h1 className="text-3xl font-bold text-navy-900">Contact / Book a Trial</h1>
         <p className="mt-2 text-navy-600">
           Get in touch or book a trial or diagnostic test.
+        </p>
+        <p className="mt-3 text-sm text-navy-600">
+          Serving students in Richmond, Vancouver, and Greater Vancouver through in-person and online competition math coaching.
+        </p>
+        <p className="mt-1 text-xs text-navy-500">
+          服务列治文、温哥华及大温地区学生，提供线下与线上竞赛数学训练与诊断。
         </p>
       </div>
       {siteConfig.showBookingForm && <BookingForm />}

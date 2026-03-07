@@ -18,7 +18,19 @@ const jsonLd = {
         "Competition math coaching and AI-powered diagnostic platform for grades 4–12.",
       email: "zengmushi1993@gmail.com",
       sameAs: [] as string[],
-      areaServed: "Greater Vancouver",
+      areaServed: [
+        "Richmond",
+        "Vancouver",
+        "Greater Vancouver",
+        "British Columbia",
+        "Canada",
+      ],
+      address: {
+        "@type": "PostalAddress",
+        addressLocality: "Richmond",
+        addressRegion: "BC",
+        addressCountry: "CA",
+      },
       knowsAbout: [
         "Competition Math",
         "AMC",
