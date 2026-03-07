@@ -1,6 +1,14 @@
+import type { Metadata } from "next";
 import { BookingForm } from "@/components/BookingForm";
 import { Footer } from "@/components/Footer";
 import { siteConfig } from "@/siteConfig";
+
+export const metadata: Metadata = {
+  title: "Book a Trial | Competition Math Coaching Consultation",
+  description:
+    "Book a trial or diagnostic test for AMC, AIME, Euclid, and competition math coaching.",
+  alternates: { canonical: "https://www.burningmath.com/contact" },
+};
 
 export default function ContactPage() {
   return (

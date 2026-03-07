@@ -1,5 +1,13 @@
+import type { Metadata } from "next";
 import Link from "next/link";
 import { siteConfig } from "@/siteConfig";
+
+export const metadata: Metadata = {
+  title: "AI Learning Platform | Competition Math Diagnostics & Practice",
+  description:
+    "Explore Burning Math Academy's AI-powered diagnostic and practice platform for competition math training, reports, and targeted improvement.",
+  alternates: { canonical: "https://www.burningmath.com/platform" },
+};
 
 export default function PlatformPage() {
   return (

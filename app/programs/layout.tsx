@@ -1,9 +1,10 @@
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {
-  title: "Contest Roadmap | Programs | Burning Math Academy",
+  title: "Competition Math Roadmap | AMC, Euclid, Gauss, Elmacon",
   description:
-    "Choose the right math contests by grade, timeline, and admissions goals. Waterloo (Gauss, Euclid), AMC, AIME, COMC, Math Kangaroo, Elmacon.",
+    "Explore the competition math roadmap for AMC, Euclid, Gauss, Elmacon, COMC, and Waterloo contests by grade and training stage.",
+  alternates: { canonical: "https://www.burningmath.com/programs" },
 };
 
 export default function ProgramsLayout({
@@ -11,5 +12,5 @@ export default function ProgramsLayout({
 }: {
   children: React.ReactNode;
 }) {
-  return children;
+  return <>{children}</>;
 }
