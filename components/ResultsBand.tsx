@@ -13,7 +13,7 @@ export function ResultsBand() {
   const resultsYear = new Date().getFullYear() - 1;
 
   return (
-    <section className="relative min-h-[420px] overflow-hidden py-16 sm:py-20 lg:py-24">
+    <section className="relative min-h-[320px] overflow-hidden py-10 sm:min-h-[380px] sm:py-16 md:min-h-[420px] md:py-20 lg:py-24">
       {/* Full-section background: medal photo */}
       <div className="absolute inset-0">
         {!bgError ? (
@@ -39,18 +39,18 @@ export function ResultsBand() {
         )}
       </div>
 
-      {/* Content */}
-      <div className="relative z-10 mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+      {/* Content – full mobile width, same content alignment */}
+      <div className="relative z-10 mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-white sm:text-3xl lg:text-4xl">
+          <h2 className="text-xl font-bold text-white sm:text-2xl md:text-3xl lg:text-4xl">
             真实成绩，持续产出
           </h2>
-          <p className="mt-2 text-base font-normal text-white/85 sm:text-lg">
+          <p className="mt-1.5 text-sm font-normal text-white/85 sm:mt-2 sm:text-base md:text-lg">
             Proven outcomes in {resultsYear}
           </p>
         </div>
 
-        <div className="mt-10 flex flex-wrap justify-center gap-4 sm:gap-5 md:gap-6">
+        <div className="mt-6 flex flex-wrap justify-center gap-3 sm:mt-10 sm:gap-4 md:gap-5 lg:gap-6">
           {siteConfig.resultsMetrics.map((metric, i) => (
             <motion.div
               key={metric}

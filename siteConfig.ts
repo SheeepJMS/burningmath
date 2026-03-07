@@ -3,6 +3,9 @@
  * Edit here to change URLs, contact info, and metrics without touching components.
  */
 
+/** 网站正式访问地址，用于 sitemap、OG 等；部署到 Render 可改为 https://xxx.onrender.com */
+export const siteBaseUrl = "https://www.burningmath.com";
+
 export const siteConfig = {
   /** Navbar logo (place file in public/assets/, e.g. logo.png or logo.svg) */
   logoPath: "/assets/logo.png",

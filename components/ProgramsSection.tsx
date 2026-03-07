@@ -20,15 +20,15 @@ const programs = [
 
 export function ProgramsSection() {
   return (
-    <section className="border-t border-navy-200 bg-navy-50 py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <h2 className="text-center text-2xl font-bold text-navy-900 sm:text-3xl lg:text-4xl">
+    <section className="border-t border-navy-200 bg-navy-50 py-10 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
+        <h2 className="text-center text-xl font-bold text-navy-900 sm:text-2xl md:text-3xl lg:text-4xl">
           Programs
         </h2>
-        <p className="mt-2 text-center text-navy-600">
+        <p className="mt-1.5 text-center text-sm text-navy-600 sm:mt-2 sm:text-base">
           Choose the track based on grade and goals.
         </p>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2">
+        <div className="mt-8 grid gap-6 sm:mt-12 sm:gap-8 sm:grid-cols-2">
           {programs.map((program, i) => (
             <motion.article
               key={program.title}

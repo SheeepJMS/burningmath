@@ -40,17 +40,17 @@ const cards = [
 
 export function FeatureCards() {
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-10 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl lg:text-4xl">
+          <h2 className="text-xl font-bold text-navy-900 sm:text-2xl md:text-3xl lg:text-4xl">
             看得见的训练体系，看得懂的学习结果
           </h2>
-          <p className="mt-2 text-base font-normal text-navy-500 sm:text-lg">
+          <p className="mt-1.5 text-sm font-normal text-navy-500 sm:mt-2 sm:text-base md:text-lg">
             Built for measurable progress and clear outcomes
           </p>
         </div>
-        <div className="mt-12 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
+        <div className="mt-8 grid gap-6 sm:grid-cols-2 sm:gap-8 lg:grid-cols-3">
           {cards.map((card, i) => (
             <motion.article
               key={card.titleZh}

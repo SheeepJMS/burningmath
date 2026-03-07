@@ -66,8 +66,8 @@ export function PlatformPreviewCarousel() {
   };
 
   return (
-    <section className="bg-white py-16 sm:py-20 lg:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <section className="bg-white py-10 sm:py-16 md:py-20 lg:py-24">
+      <div className="mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="text-center">
           <h2 className="text-2xl font-bold text-navy-900 sm:text-3xl lg:text-4xl">
             See what parents receive after every test

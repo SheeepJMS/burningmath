@@ -17,21 +17,22 @@ export function Hero() {
 
   return (
     <section className="relative overflow-hidden bg-navy-950 text-white">
-      <div className="mx-auto grid max-w-7xl grid-cols-1 gap-10 px-4 py-20 sm:px-6 lg:grid-cols-2 lg:gap-16 lg:py-28 lg:px-8">
-        {/* Left: headline, subtitle, body, 3 chips, CTAs only */}
-        <div className="flex flex-col justify-center">
+      {/* Full-width mobile container; desktop keeps max-w-7xl two-column grid */}
+      <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-8 px-4 py-12 sm:px-5 sm:py-16 md:gap-10 md:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
+        {/* A. Brand/title block → B. Chips → C. CTAs (mobile: vertical stack); desktop: left column */}
+        <div className="flex min-w-0 flex-col justify-center">
           <motion.div
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4 }}
           >
-            <h1 className="text-3xl font-bold tracking-tight sm:text-4xl lg:text-5xl">
+            <h1 className="text-2xl font-bold tracking-tight sm:text-3xl md:text-4xl lg:text-5xl">
               {siteConfig.brand.name}
             </h1>
-            <p className="mt-2 text-base font-normal tracking-tight text-navy-300 sm:text-lg">
+            <p className="mt-1.5 text-sm font-normal tracking-tight text-navy-300 sm:mt-2 sm:text-base md:text-lg">
               烧脑数学 / 专业数学竞赛培训与成长平台
             </p>
-            <p className="mt-3 text-lg font-medium text-accent sm:text-xl">
+            <p className="mt-2 text-base font-medium text-accent sm:mt-3 sm:text-lg md:text-xl">
               {siteConfig.brand.tagline}
             </p>
           </motion.div>
@@ -39,16 +40,17 @@ export function Hero() {
             initial={{ opacity: 0, y: 12 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.06 }}
-            className="mt-4 max-w-xl text-navy-200 text-base leading-relaxed"
+            className="mt-3 max-w-xl text-navy-200 text-sm leading-snug sm:mt-4 sm:text-base sm:leading-relaxed md:leading-relaxed"
           >
             {heroBodyCopy}
           </motion.p>
 
+          {/* B. Results chips – wrap into 2 rows, tight spacing on mobile */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             transition={{ duration: 0.4, delay: 0.12 }}
-            className="mt-6 flex flex-wrap gap-2"
+            className="mt-4 flex flex-wrap gap-2 sm:mt-6"
           >
             {siteConfig.heroMetrics.map((m) => (
               <span
@@ -60,47 +62,48 @@ export function Hero() {
             ))}
           </motion.div>
 
+          {/* C. CTAs – mobile: vertical stack, full-width buttons; desktop: row */}
           <motion.div
             initial={{ opacity: 0, y: 8 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.4, delay: 0.2 }}
-            className="mt-8 flex flex-wrap items-center gap-4"
+            className="mt-6 flex flex-col gap-3 sm:mt-8 md:flex-row md:flex-wrap md:items-center md:gap-4"
           >
             <Link
               href="/contact#booking"
-              className="inline-flex items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-dark"
+              className="inline-flex w-full items-center justify-center rounded-full bg-accent px-6 py-3 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-dark md:w-auto"
             >
               Book a Trial
             </Link>
             <Link
               href={siteConfig.diagnosticUrl}
-              className="inline-flex items-center justify-center rounded-full border border-navy-500 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800"
+              className="inline-flex w-full items-center justify-center rounded-full border border-navy-500 bg-transparent px-6 py-3 text-sm font-semibold text-white transition hover:bg-navy-800 md:w-auto"
             >
               Take a Diagnostic Test
             </Link>
             <Link
               href={siteConfig.platformUrl}
-              className="text-sm font-medium text-accent-light hover:underline"
+              className="text-center text-sm font-medium text-accent-light hover:underline md:text-left"
             >
               Explore the Platform
             </Link>
           </motion.div>
         </div>
 
-        {/* Right: single premium coach profile card — links to /coach */}
+        {/* D. Coach profile card – mobile: full width below CTAs; desktop: right column */}
         <motion.div
           initial={{ opacity: 0, scale: 0.98 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex items-center justify-center"
+          className="flex w-full items-center justify-center lg:justify-center"
         >
           <Link
             href="/coach"
-            className="block w-full max-w-[380px] rounded-2xl border border-navy-700/30 bg-navy-900/90 p-4 shadow-xl backdrop-blur-sm transition hover:border-navy-600/50 sm:p-5"
+            className="block w-full max-w-full rounded-2xl border border-navy-700/30 bg-navy-900/90 p-3 shadow-xl backdrop-blur-sm transition hover:border-navy-600/50 sm:p-4 lg:max-w-[380px] lg:p-5"
           >
-            {/* Portrait area – slightly shorter, more breathing room, softer background */}
+            {/* Portrait – mobile-friendly aspect, no fixed width */}
             <div className="relative w-full overflow-hidden rounded-xl bg-slate-100/95">
-              <div className="relative mx-auto flex aspect-[5/3] max-w-full items-center justify-center px-3 py-2.5 sm:px-4 sm:py-3">
+              <div className="relative mx-auto flex aspect-[4/3] max-w-full items-center justify-center px-2 py-2 sm:aspect-[5/3] sm:px-4 sm:py-3">
                 <div className="relative h-full w-full overflow-hidden rounded-lg">
                   {showCoachPlaceholder ? (
                     <div className="flex h-full w-full items-center justify-center bg-slate-200 text-slate-500 text-xs">
@@ -112,7 +115,7 @@ export function Hero() {
                       alt="James Zeng, Coach"
                       fill
                       className="object-cover object-top"
-                      sizes="360px"
+                      sizes="(max-width: 1023px) 100vw, 360px"
                       unoptimized
                       onError={() =>
                         coachCardError
@@ -125,18 +128,18 @@ export function Hero() {
               </div>
             </div>
 
-            {/* Text block under portrait – clear hierarchy, relaxed spacing */}
-            <div className="mt-4 space-y-1.5 text-left">
-              <p className="text-base font-bold leading-tight text-white sm:text-lg">
+            {/* Text block – tighter on mobile */}
+            <div className="mt-3 space-y-1 text-left sm:mt-4 sm:space-y-1.5">
+              <p className="text-sm font-bold leading-tight text-white sm:text-base md:text-lg">
                 James Zeng
               </p>
-              <p className="text-sm font-medium leading-snug text-navy-300">
+              <p className="text-xs font-medium leading-snug text-navy-300 sm:text-sm">
                 Competition Math Coach
               </p>
-              <p className="text-xs leading-relaxed text-navy-400">
+              <p className="text-[11px] leading-relaxed text-navy-400 sm:text-xs">
                 CMO Silver · National Math League First Prize · NJU Dual Degree (Math + Electronics)
               </p>
-              <p className="mt-2 text-xs font-medium text-accent/90">Meet the Coach →</p>
+              <p className="mt-1.5 text-xs font-medium text-accent/90 sm:mt-2">Meet the Coach →</p>
             </div>
           </Link>
         </motion.div>
