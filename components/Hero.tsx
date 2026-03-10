@@ -32,9 +32,9 @@ export function Hero() {
             />
           </div>
 
-          {/* Dark gradient overlay: smooth left-to-right, strong text readability */}
+          {/* Dark gradient overlay: stronger on mobile for readability, smoother on desktop */}
           <div
-            className="absolute inset-0 bg-gradient-to-r from-navy-950/96 via-navy-950/60 to-navy-950/12"
+            className="absolute inset-0 bg-gradient-to-br from-navy-950/98 via-navy-950/70 to-navy-950/15 sm:from-navy-950/96 sm:via-navy-950/60 sm:to-navy-950/12"
             aria-hidden
           />
 
@@ -58,7 +58,8 @@ export function Hero() {
                 transition={{ duration: 0.4, delay: 0.05 }}
                 className="mt-1.5 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.75rem]"
               >
-                {siteConfig.brand.name}
+                <span className="block sm:inline">Burning Math</span>{" "}
+                <span className="block sm:inline">Academy</span>
               </motion.h1>
 
               {/* C. Chinese subtitle */}
