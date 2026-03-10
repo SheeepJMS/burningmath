@@ -139,22 +139,22 @@ export function PlatformPreviewCarousel() {
               </AnimatePresence>
             </div>
 
-            {/* Mobile: small segmented chips; desktop: larger pills */}
-            <div className="mt-3 overflow-visible -mx-4 sm:-mx-6 md:mt-4 lg:-mx-8">
-              <div className="flex flex-wrap justify-center gap-1.5 md:flex-nowrap md:gap-2">
+            {/* Mobile: 2x2 grid, width same as screenshot; desktop: single row pills */}
+            <div className="mt-3 w-full md:mt-4 md:-mx-4 lg:-mx-8">
+              <div className="grid grid-cols-2 gap-2 md:flex md:flex-nowrap md:justify-center md:gap-2">
                 {slides.map((slide, i) => (
                   <button
                     key={slide.en}
                     type="button"
                     onClick={() => goTo(i)}
-                    className={`shrink-0 rounded-full border px-2.5 py-1 text-center text-[11px] font-medium transition md:px-3 md:py-1.5 md:text-sm lg:px-4 lg:py-2 ${
+                    className={`min-w-0 rounded-full border px-2 py-1.5 text-center text-[11px] font-medium transition md:shrink-0 md:px-3 md:py-1.5 md:text-sm lg:px-4 lg:py-2 ${
                       i === index
                         ? "border-accent bg-accent text-white"
                         : "border-navy-200 bg-white text-navy-600 hover:border-navy-300 hover:bg-navy-50"
                     }`}
                   >
-                    <span className="whitespace-nowrap">{slide.zh}</span>
-                    <span className="ml-1 hidden opacity-90 sm:inline md:ml-1.5 md:text-xs">/ {slide.en}</span>
+                    <span className="truncate md:whitespace-nowrap">{slide.zh}</span>
+                    <span className="ml-1 hidden opacity-90 md:inline md:text-xs">/ {slide.en}</span>
                   </button>
                 ))}
               </div>

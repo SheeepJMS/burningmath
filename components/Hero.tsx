@@ -6,146 +6,135 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import { siteConfig } from "@/siteConfig";
 
-const heroBodyCopy =
-  "Personalized coaching for G4–G12 across AMC, COMC, and the Waterloo contest pathway — supported by a data-driven system that turns each test into clear next steps.";
+const heroSupport =
+  "Professional competition math training. Develop rigorous thinking. Reach Olympiad National-level results.";
+const contestTags = ["AMC", "AIME", "Euclid", "CMO"];
 
 export function Hero() {
-  const [coachCardError, setCoachCardError] = useState(false);
-  const [coachCardFallbackError, setCoachCardFallbackError] = useState(false);
-  const coachCardSrc = coachCardError ? siteConfig.coachPortraitImage : siteConfig.heroCoachCardImage;
-  const showCoachPlaceholder = coachCardError && coachCardFallbackError;
+  const [imageError, setImageError] = useState(false);
+  const heroImage = imageError ? "/assets/coach.png" : siteConfig.heroBannerImage;
 
   return (
-    <section className="relative overflow-hidden bg-navy-950 text-white">
-      {/* Mobile: compact single column, 16px padding; desktop: max-w-7xl two-column */}
-      <div className="mx-auto w-full max-w-7xl grid grid-cols-1 gap-5 px-4 py-8 sm:gap-6 sm:py-10 md:gap-10 md:py-20 lg:grid-cols-2 lg:gap-16 lg:px-8 lg:py-28">
-        {/* A. Text block → B. Chips → C. CTAs (mobile: compact); desktop: left column */}
-        <div className="flex min-w-0 flex-col justify-center">
-          <motion.div
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            <h1 className="text-xl font-bold tracking-tight sm:text-2xl md:text-4xl lg:text-5xl">
-              {siteConfig.brand.name}
-            </h1>
-            <p className="mt-1 text-xs font-normal tracking-tight text-navy-300 sm:mt-1.5 sm:text-sm md:text-lg">
-              烧脑数学 / 专业数学竞赛培训与成长平台
-            </p>
-            <p className="mt-1.5 text-sm font-medium text-accent sm:mt-2 md:text-lg lg:text-xl">
-              {siteConfig.brand.tagline}
-            </p>
-          </motion.div>
-          <motion.p
-            initial={{ opacity: 0, y: 12 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.06 }}
-            className="mt-2 max-w-xl text-navy-200 text-xs leading-snug sm:mt-3 sm:text-sm md:text-base md:leading-relaxed"
-          >
-            {heroBodyCopy}
-          </motion.p>
-          <p className="mt-1.5 text-xs text-navy-300 sm:text-sm">
-            Serving students across Vancouver, Richmond, Burnaby, West Vancouver, and Delta, including Vancouver West and Vancouver East.
-          </p>
-          <p className="mt-0.5 text-[11px] text-navy-400">
-            服务温哥华、列治文、本拿比、西温及三角洲地区学生，包括温西和温东。
-          </p>
+    <section className="relative overflow-hidden bg-navy-950">
+      <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 sm:py-8 md:px-8 md:py-10">
+        <div className="relative overflow-hidden rounded-2xl min-h-[420px] sm:min-h-[460px] md:min-h-[500px] lg:min-h-[540px]">
+          {/* Full-width hero background image */}
+          <div className="absolute inset-0">
+            <Image
+              src={heroImage}
+              alt=""
+              fill
+              className="object-cover object-[78%_32%] scale-[1.06]"
+              sizes="100vw"
+              priority
+              unoptimized
+              onError={() => setImageError(true)}
+            />
+          </div>
 
-          {/* B. Results chips – compact pills on mobile */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ duration: 0.4, delay: 0.12 }}
-            className="mt-3 flex flex-wrap gap-1.5 sm:mt-4 md:mt-6 md:gap-2"
-          >
-            {siteConfig.heroMetrics.map((m) => (
-              <span
-                key={m}
-                className="rounded-full border border-navy-500/60 bg-navy-800/60 px-2.5 py-0.5 text-[11px] font-medium text-navy-100 sm:px-3 sm:py-1 sm:text-xs"
+          {/* Dark gradient overlay: smooth left-to-right, strong text readability */}
+          <div
+            className="absolute inset-0 bg-gradient-to-r from-navy-950/96 via-navy-950/60 to-navy-950/12"
+            aria-hidden
+          />
+
+          {/* Text overlay – left side */}
+          <div className="relative z-10 flex h-full items-center">
+            <div className="max-w-xl px-6 py-10 sm:px-8 sm:py-12 md:px-10 md:py-14 lg:px-12 lg:py-16">
+              {/* A. Eyebrow */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4 }}
+                className="text-[11px] font-semibold uppercase tracking-[0.2em] text-accent sm:text-xs"
               >
-                {m}
-              </span>
-            ))}
-          </motion.div>
+                Competition Math Coaching + AI Analytics
+              </motion.p>
 
-          {/* C. CTAs – mobile: full-width, slimmer buttons; desktop: row */}
-          <motion.div
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: 0.2 }}
-            className="mt-4 flex flex-col gap-2.5 sm:mt-5 md:mt-8 md:flex-row md:flex-wrap md:items-center md:gap-4"
-          >
-            <Link
-              href="/contact#booking"
-              className="inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-dark md:w-auto md:px-6 md:py-3"
-            >
-              Book a Trial
-            </Link>
-            <Link
-              href={siteConfig.diagnosticUrl}
-              className="inline-flex w-full items-center justify-center rounded-full border border-navy-500 bg-transparent px-5 py-2.5 text-sm font-semibold text-white transition hover:bg-navy-800 md:w-auto md:px-6 md:py-3"
-            >
-              Take a Diagnostic Test
-            </Link>
-            <Link
-              href={siteConfig.platformUrl}
-              className="text-center text-xs font-medium text-accent-light hover:underline md:text-left md:text-sm"
-            >
-              Explore the Platform
-            </Link>
-          </motion.div>
+              {/* B. Main heading */}
+              <motion.h1
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.05 }}
+                className="mt-1.5 text-2xl font-bold leading-tight tracking-tight text-white sm:text-3xl md:text-4xl lg:text-[2.75rem]"
+              >
+                {siteConfig.brand.name}
+              </motion.h1>
+
+              {/* C. Chinese subtitle */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.1 }}
+                className="mt-1 text-sm font-normal text-white/80 sm:text-base"
+              >
+                烧脑数学 / 专业数学竞赛培训与成长平台
+              </motion.p>
+
+              {/* D. Supporting line */}
+              <motion.p
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.12 }}
+                className="mt-2.5 text-sm leading-relaxed text-white/80 sm:text-[15px]"
+              >
+                {heroSupport}
+              </motion.p>
+              <motion.p
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.13 }}
+                className="mt-1.5 text-xs leading-relaxed text-white/65 sm:text-sm"
+              >
+                专业数学竞赛培训 · 培养严谨思维能力 · 冲击奥林匹克与国家队级目标
+              </motion.p>
+
+              {/* E. Contest tags */}
+              <motion.div
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                transition={{ duration: 0.4, delay: 0.14 }}
+                className="mt-3 flex flex-wrap gap-1.5"
+              >
+                {contestTags.map((tag) => (
+                  <span
+                    key={tag}
+                    className="rounded-full border border-white/20 bg-white/[0.06] px-2 py-0.5 text-[10px] font-medium tracking-wide text-white/75 sm:text-[11px]"
+                  >
+                    {tag}
+                  </span>
+                ))}
+              </motion.div>
+
+              {/* F. CTA row */}
+              <motion.div
+                initial={{ opacity: 0, y: 8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.4, delay: 0.16 }}
+                className="mt-6 flex flex-col gap-3 sm:mt-7 sm:flex-row sm:flex-wrap sm:items-center sm:gap-4"
+              >
+                <Link
+                  href="/contact#booking"
+                  className="inline-flex w-full items-center justify-center rounded-full bg-accent px-5 py-2.5 text-sm font-semibold text-white shadow-lg transition hover:bg-accent-dark sm:w-auto sm:px-6 sm:py-3"
+                >
+                  Book a Trial
+                </Link>
+                <Link
+                  href="/contact#booking"
+                  className="inline-flex w-full items-center justify-center rounded-full border border-white/40 bg-white/5 px-5 py-2.5 text-sm font-semibold text-white backdrop-blur-sm transition hover:bg-white/10 sm:w-auto sm:px-6 sm:py-3"
+                >
+                  Take a Diagnostic Test
+                </Link>
+                <Link
+                  href="/coach"
+                  className="text-center text-sm font-medium text-white/80 hover:text-white hover:underline sm:text-left"
+                >
+                  Meet the Coach →
+                </Link>
+              </motion.div>
+            </div>
+          </div>
         </div>
-
-        {/* D. Coach card – mobile: compact trust element; desktop: right column */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.98 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.15 }}
-          className="flex w-full items-center justify-center lg:justify-center"
-        >
-          <Link
-            href="/coach"
-            className="block w-full max-w-full rounded-[18px] border border-navy-700/30 bg-navy-900/90 p-2.5 shadow-xl backdrop-blur-sm transition hover:border-navy-600/50 sm:p-3 md:rounded-2xl md:p-4 lg:max-w-[380px] lg:p-5"
-          >
-            <div className="relative w-full overflow-hidden rounded-lg bg-slate-100/95 md:rounded-xl">
-              <div className="relative mx-auto flex aspect-[8/4] max-w-full items-center justify-center px-1.5 py-1.5 sm:aspect-[5/3] sm:px-3 sm:py-2 md:px-4 md:py-3">
-                <div className="relative h-full w-full overflow-hidden rounded-md sm:rounded-lg">
-                  {showCoachPlaceholder ? (
-                    <div className="flex h-full w-full items-center justify-center bg-slate-200 text-slate-500 text-[10px]">
-                      Coach
-                    </div>
-                  ) : (
-                    <Image
-                      src={coachCardSrc}
-                      alt="James Zeng, Coach"
-                      fill
-                      className="object-cover object-top"
-                      sizes="(max-width: 1023px) 100vw, 360px"
-                      unoptimized
-                      onError={() =>
-                        coachCardError
-                          ? setCoachCardFallbackError(true)
-                          : setCoachCardError(true)
-                      }
-                    />
-                  )}
-                </div>
-              </div>
-            </div>
-            <div className="mt-2 space-y-0.5 text-left sm:mt-3 sm:space-y-1 md:mt-4 md:space-y-1.5">
-              <p className="text-xs font-bold leading-tight text-white sm:text-sm md:text-base lg:text-lg">
-                James Zeng
-              </p>
-              <p className="text-[11px] font-medium leading-snug text-navy-300 sm:text-xs md:text-sm">
-                Competition Math Coach
-              </p>
-              <p className="text-[10px] leading-relaxed text-navy-400 sm:text-[11px] md:text-xs">
-                CMO Silver · National Math League First Prize · NJU Dual Degree (Math + Electronics)
-              </p>
-              <p className="mt-1 text-[11px] font-medium text-accent/90 sm:mt-1.5 sm:text-xs md:mt-2">Meet the Coach →</p>
-            </div>
-          </Link>
-        </motion.div>
       </div>
     </section>
   );

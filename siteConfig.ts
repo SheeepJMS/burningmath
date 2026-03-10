@@ -66,7 +66,9 @@ export const siteConfig = {
     "/assets/report4.png",
   ],
 
-  /** Hero 右侧教练卡片 + Meet the Coach：同一张图。请把您的肖像保存为 public/assets/coach.png */
+  /** Hero 全宽横幅背景图（horizontal hero image） */
+  heroBannerImage: "/assets/coach2.png",
+  /** 教练卡片 / Meet the Coach 头像（coach 页等） */
   heroCoachCardImage: "/assets/coach.png",
   resultsMedalImage: "/assets/hero-medals.jpg",
   coachPortraitImage: "/assets/coach.png",
