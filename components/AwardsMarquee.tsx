@@ -2,11 +2,12 @@
 
 import { useEffect, useState, useRef } from "react";
 import Image from "next/image";
+import { siteConfig } from "@/siteConfig";
 
 /**
  * Awards & Certificates marquee.
- * Images are auto-loaded from public/assets/awards/ via GET /api/awards.
- * To add new certificates: drop images (.png, .jpg, .jpeg, .webp) into public/assets/awards/
+ * Production (static export): uses siteConfig.awardCertificateImages — list paths under /assets/awards/.
+ * Local dev: if that list is empty, falls back to GET /api/awards (reads public/assets/awards/).
  */
 export function AwardsMarquee() {
   const [urls, setUrls] = useState<string[]>([]);
@@ -14,9 +15,14 @@ export function AwardsMarquee() {
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
+    const fromConfig = [...siteConfig.awardCertificateImages];
+    if (fromConfig.length > 0) {
+      setUrls(fromConfig);
+      return;
+    }
     fetch("/api/awards")
-      .then((r) => r.json())
-      .then((arr: string[]) => setUrls(Array.isArray(arr) ? arr : []))
+      .then((r) => (r.ok ? r.json() : []))
+      .then((arr: unknown) => setUrls(Array.isArray(arr) ? (arr as string[]) : []))
       .catch(() => setUrls([]));
   }, []);
 
@@ -64,6 +70,7 @@ export function AwardsMarquee() {
                   className="h-full w-full object-contain"
                   loading="lazy"
                   sizes="220px"
+                  unoptimized
                 />
               </a>
             ))}

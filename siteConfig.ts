@@ -66,6 +66,12 @@ export const siteConfig = {
     "/assets/report4.png",
   ],
 
+  /**
+   * Results 页「证书与奖状」画廊。填写 public/assets/awards/ 下已提交的文件路径。
+   * 静态导出（如 Render Static Site）下无法使用 /api/awards，必须在此列出；本地 dev 仍可依赖 API 自动发现。
+   */
+  awardCertificateImages: [] as readonly string[],
+
   /** Hero 全宽横幅背景图（horizontal hero image） */
   heroBannerImage: "/assets/coach2.png",
   /** 教练卡片 / Meet the Coach 头像（coach 页等） */
